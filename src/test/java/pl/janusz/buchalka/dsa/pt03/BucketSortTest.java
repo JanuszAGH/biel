@@ -10,10 +10,9 @@ import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
 
 /**
- * Created by Janusz Kacki on 23/10/2019. Project; bielmarcus
+ * Created by Janusz Kacki on 05/11/2019. Project; bielmarcus
  */
-public class BubbleSortTest {
-
+public class BucketSortTest {
     private Integer[] unsortedNumbers;
     private Integer[] sortedNumbers;
 
@@ -24,7 +23,7 @@ public class BubbleSortTest {
         Integer[] sortedOne = unsortedOne.clone();
         Arrays.sort(sortedOne);
 
-        BubbleSort.sort(unsortedOne);
+        BucketSort.sort(unsortedOne);
 
         assertThat(unsortedOne, is(arrayContaining(sortedOne)));
     }
@@ -35,7 +34,7 @@ public class BubbleSortTest {
         Integer[] unsortedOne = new Integer[]{4, 3, 2, 1};
         Integer[] sortedOne = new Integer[]{1, 2, 3, 4};
 
-        BubbleSort.sort(unsortedOne);
+        BucketSort.sort(unsortedOne);
 
         assertThat(unsortedOne, is(arrayContaining(sortedOne)));
     }
@@ -48,7 +47,7 @@ public class BubbleSortTest {
         Arrays.sort(sortedOne);
         Integer[] sortedTwo = sortedOne.clone();
 
-        BubbleSort.sort(sortedOne);
+        BucketSort.sort(sortedOne);
 
         assertThat(sortedOne, is(arrayContaining(sortedTwo)));
     }
@@ -59,7 +58,7 @@ public class BubbleSortTest {
         Integer[] unsortedOne = new Integer[]{7};
         Integer[] sortedOne = new Integer[]{7};
 
-        BubbleSort.sort(unsortedOne);
+        BucketSort.sort(unsortedOne);
 
         assertThat(unsortedOne, is(arrayContaining(sortedOne)));
     }
@@ -70,7 +69,7 @@ public class BubbleSortTest {
         Integer[] unsortedOne = new Integer[]{7, 4};
         Integer[] sortedOne = new Integer[]{4, 7};
 
-        BubbleSort.sort(unsortedOne);
+        BucketSort.sort(unsortedOne);
 
         assertThat(unsortedOne, is(arrayContaining(sortedOne)));
     }
@@ -81,7 +80,7 @@ public class BubbleSortTest {
         Integer[] unsortedOne = new Integer[]{4, 7};
         Integer[] sortedOne = new Integer[]{4, 7};
 
-        BubbleSort.sort(unsortedOne);
+        BucketSort.sort(unsortedOne);
 
         assertThat(unsortedOne, is(arrayContaining(sortedOne)));
     }
@@ -92,7 +91,7 @@ public class BubbleSortTest {
         Integer[] unsortedOne = new Integer[]{7, 4, 5};
         Integer[] sortedOne = new Integer[]{4, 5, 7};
 
-        BubbleSort.sort(unsortedOne);
+        BucketSort.sort(unsortedOne);
 
         assertThat(unsortedOne, is(arrayContaining(sortedOne)));
     }
@@ -103,7 +102,7 @@ public class BubbleSortTest {
         Integer[] unsortedOne = new Integer[]{4, 5, 7};
         Integer[] sortedOne = new Integer[]{4, 5, 7};
 
-        BubbleSort.sort(unsortedOne);
+        BucketSort.sort(unsortedOne);
 
         assertThat(unsortedOne, is(arrayContaining(sortedOne)));
     }
@@ -119,8 +118,9 @@ public class BubbleSortTest {
     @Test
     public void shouldSort() {
 
-        BubbleSort.sort(unsortedNumbers);
+        BucketSort.sort(unsortedNumbers);
 
         assertThat(unsortedNumbers, is(arrayContaining(sortedNumbers)));
     }
+
 }

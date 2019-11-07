@@ -29,11 +29,11 @@ public class EmployeeTest {
         jinks = new Employee("Jinks", "Tomcat", 1);
         pixie = new Employee("Pixie", "Mouse", 2);
         dixie = new Employee("Dixie", "Mouse", 3);
+        felix = new Employee("Felix", "Cat", 4);
 
         employees.add(jinks);
         employees.add(pixie);
         employees.add(dixie);
-        felix = new Employee("Felix", "Cat", 4);
     }
 
     @Test

@@ -18,7 +18,8 @@ import org.junit.runners.Suite;
         InsertionSortTest.class,
         InsertionSortRecursiveTest.class,
         CountingSortTest.class,
-        BubbleSortTest.class
+        BubbleSortTest.class,
+        BucketSort.class
 })
 public class SortsSuite {
 

@@ -26,13 +26,6 @@ public class SomeArraysTest {
         array = new Integer[2];
     }
 
-    @Ignore
-    @Test
-    public void fuckup() {
-
-        assertThat(array, arrayContaining(null, null));
-    }
-
     @Test
     public void initialStateOfarray() {
 
@@ -40,5 +33,4 @@ public class SomeArraysTest {
 
         assertThat(array, hasItemInArray(nullValue()));
     }
-
 }
