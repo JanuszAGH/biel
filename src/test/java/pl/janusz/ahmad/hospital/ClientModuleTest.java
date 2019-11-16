@@ -33,8 +33,5 @@ public class ClientModuleTest {
 
         ClientModule.hireNewEmployee(peggy);
 
-//        Mockito
-//                .verify(employeeDAOMock)
-//                .saveEmployee(employee);
     }
 }
