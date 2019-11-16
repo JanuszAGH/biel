@@ -1,4 +1,4 @@
-package pl.janusz.ahmad.hospital;
+package pl.janusz.ahmad.hospital.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package pl.janusz.ahmad.hospital;
+package pl.janusz.ahmad.hospital.domain;
 
 /**
  * Created by Janusz Kacki on 14/11/2019. Project; bielmarcus
