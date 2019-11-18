@@ -35,6 +35,7 @@ public class MainStaX {
                 final String localPart = startElement.getName().getLocalPart();
                 System.out.println("START " + localPart);
                 xmlEvent = xmlEventReader.nextEvent();
+
                 if (xmlEvent.isCharacters()) {
                     final Characters characters = xmlEvent.asCharacters();
                     final String data = characters.getData();
