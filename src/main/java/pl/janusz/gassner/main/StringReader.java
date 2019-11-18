@@ -13,12 +13,12 @@ public class StringReader {
 
     public static void main(String[] args) {
 
-        final Path dir = Paths.get("src", "main", "resources", "files", "data");
-        final Path largeXML = dir.resolve("customers.json");
+        final Path dir = Paths.get("src", "main", "resources", "files");
+        final Path largeXML = dir.resolve("employees.xml");
 
         int c;
         final StringBuilder stringBuilder = new StringBuilder();
-
+                
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(largeXML.toFile()))) {
             while ((c = bufferedReader.read()) != -1) {
                 stringBuilder.append((char) c);
