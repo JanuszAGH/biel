@@ -1,4 +1,4 @@
-package pl.janusz.ahmad.multithreading;
+package pl.janusz.ahmad.multithreading.states;
 
 import java.util.concurrent.TimeUnit;
 

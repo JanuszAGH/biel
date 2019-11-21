@@ -1,4 +1,4 @@
-package pl.janusz.ahmad.multithreading;
+package pl.janusz.ahmad.multithreading.states;
 
 /**
  * Created by Janusz Kacki on 19/11/2019. Project; bielmarcus
