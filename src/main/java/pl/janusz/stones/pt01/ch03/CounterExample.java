@@ -24,6 +24,7 @@ public class CounterExample {
         counter = new CounterLockedOnObject();
         counter = new CounterOnReentrantLock();
         counter = new CounterReadWriteLock();
+        counter = new CounterNestedFunctions();
 
 
         final Incrementer incrementer = new Incrementer(counter);
@@ -35,12 +36,6 @@ public class CounterExample {
                 incrementer, incrementer,
                 incrementer, decrementer,
                 decrementer, incrementer,
-                decrementer, decrementer,
-                incrementer, incrementer,
-                incrementer, decrementer,
-                decrementer, incrementer,
-                decrementer, decrementer,
-                incrementer, incrementer,
                 decrementer, incrementer);
 
         final List<Future<Void>> futures = executorService.invokeAll(callables);

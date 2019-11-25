@@ -8,10 +8,18 @@ public class CounterNestedFunctions implements Counter {
     private int count;
 
     @Override
-    public void inc() {
+    public synchronized void inc() {
 
         int val = readVal();
         val = modifyInPlusVal(val);
+        writeVal(val);
+    }
+
+    @Override
+    public synchronized void dec() {
+
+        int val = readVal();
+        val = modifyInMinusVal(val);
         writeVal(val);
     }
 
@@ -23,14 +31,6 @@ public class CounterNestedFunctions implements Counter {
     private int readVal() {
 
         return count;
-    }
-
-    @Override
-    public void dec() {
-
-        int val = readVal();
-        val = modifyInMinusVal(val);
-        writeVal(val);
     }
 
     private void writeVal(int val) {
@@ -46,6 +46,6 @@ public class CounterNestedFunctions implements Counter {
     @Override
     public int get() {
 
-        return 0;
+        return count;
     }
 }
