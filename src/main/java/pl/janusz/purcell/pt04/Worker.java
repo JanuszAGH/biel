@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by Janusz Kacki on 25/11/2019. Project; bielmarcus
@@ -12,8 +14,8 @@ public class Worker {
 
     private static final int MAX_ITERATIONS = 1_000;
 
-    private static final Object lock1 = new Object();
-    private static final Object lock2 = new Object();
+    private static final Lock lock1 = new ReentrantLock();
+    private static final Lock lock2 = new ReentrantLock();
 
     private static final List<Integer> list1 = new ArrayList<>();
     private static final List<Integer> list2 = new ArrayList<>();
@@ -48,8 +50,11 @@ public class Worker {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        synchronized (lock1) {
+        lock1.lock();
+        try {
             list1.add(3);
+        } finally {
+            lock1.unlock();
         }
     }
 
@@ -60,8 +65,11 @@ public class Worker {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        synchronized (lock2) {
+        lock2.lock();
+        try {
             list2.add(3);
+        } finally {
+            lock2.unlock();
         }
     }
 

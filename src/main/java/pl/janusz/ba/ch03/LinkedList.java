@@ -3,7 +3,6 @@ package pl.janusz.ba.ch03;
 /**
  * Created by Janusz Kacki on 01/11/2019. Project; bielmarcus
  */
-public class LinkedList<E> implements List<E> {
 
     private Node<E> head;
     private Node<E> tail;
