@@ -11,18 +11,22 @@ import java.util.Date;
  * Created by Janusz Kacki on 29/11/2019. Project; bielmarcus
  */
 @NotThreadSafe
-public class DateFormatter {
+public class DateFormatterNTS {
 
-    private final ThreadLocal<DateFormat> dateFormat =
-            ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd"))
+    DateFormat dateFormat;
+
+    public DateFormatterNTS() {
+
+        this.dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    }
 
     public String format(Date date) {
 
-        return dateFormat.get().format(date);
+        return dateFormat.format(date);
     }
 
     public Date parse(String date) throws ParseException {
 
-        return dateFormat.get().parse(date);
+        return dateFormat.parse(date);
     }
 }
