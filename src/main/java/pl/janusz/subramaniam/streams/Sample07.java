@@ -1,29 +1,34 @@
 package pl.janusz.subramaniam.streams;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
  * Created by Janusz Kacki on 01/12/2019. Project; bielmarcus
  */
-public class Sample03 {
+public class Sample07 {
 
     private static List<Person> people;
 
     public static void main(String[] args) {
 
-        people = getPeople();
+        getPeople()
+                .stream()
+                .collect(Collectors.groupingBy(Person::getGender))
+                .forEach((k, v) -> System.out.println(k + " " + v));
 
-        Map<Gender, ArrayList<String>> collect = people.stream()
-                .collect(Collectors.groupingBy(Person::getGender,
-                        Collectors.mapping(Person::getName,
-                                Collectors.toCollection(ArrayList::new))));
-        collect.forEach((k, v) -> System.out.println(k + " " + v));
+        getPeople()
+                .stream()
+                .collect(Collectors.groupingBy(Person::getName,
+                        Collectors.mapping(Person::getAge, Collectors.toList())
+                ))
+                .forEach((k, v) -> System.out.println(k + " " + v));
     }
 
     private static List<Person> getPeople() {

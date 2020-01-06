@@ -1,29 +1,46 @@
 package pl.janusz.subramaniam.streams;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
  * Created by Janusz Kacki on 01/12/2019. Project; bielmarcus
  */
-public class Sample03 {
+public class Sample06 {
 
     private static List<Person> people;
 
     public static void main(String[] args) {
 
-        people = getPeople();
+        Map<String, List<Person>> listedByNames = getPeople()
+                .stream()
+                .collect(Collectors.groupingBy(Person::getName, Collectors.toList()));
 
-        Map<Gender, ArrayList<String>> collect = people.stream()
-                .collect(Collectors.groupingBy(Person::getGender,
-                        Collectors.mapping(Person::getName,
-                                Collectors.toCollection(ArrayList::new))));
-        collect.forEach((k, v) -> System.out.println(k + " " + v));
+        Map<String, Long> countedByName = getPeople()
+                .stream()
+                .collect(Collectors.groupingBy(Person::getName, Collectors.counting()));
+
+        List<String> allNames = getPeople()
+                .stream()
+                .map(Person::getName)
+                .collect(Collectors.toList());
+
+        Map<String, Long> countedByNames = allNames
+                .stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        Map<Gender, List<String>> namesByGender = getPeople()
+                .stream()
+                .collect(Collectors.groupingBy(
+                        Person::getGender,
+                        Collectors.mapping(Person::getName, Collectors.toList())
+                ));
     }
 
     private static List<Person> getPeople() {

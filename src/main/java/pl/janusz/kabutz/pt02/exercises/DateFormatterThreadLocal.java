@@ -11,11 +11,11 @@ import java.util.Date;
  * Created by Janusz Kacki on 29/11/2019. Project; bielmarcus
  */
 @ThreadSafe
-public class DateFormatterTL {
+public class DateFormatterThreadLocal {
 
     private final ThreadLocal<DateFormat> dateFormat;
 
-    public DateFormatterTL() {
+    public DateFormatterThreadLocal() {
 
         this.dateFormat = new ThreadLocal<>();
         dateFormat.set(new SimpleDateFormat("yyyy-MM-dd"));

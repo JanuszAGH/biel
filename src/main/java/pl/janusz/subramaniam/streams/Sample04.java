@@ -1,28 +1,28 @@
 package pl.janusz.subramaniam.streams;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
  * Created by Janusz Kacki on 01/12/2019. Project; bielmarcus
  */
-public class Sample03 {
+public class Sample04 {
 
     private static List<Person> people;
 
     public static void main(String[] args) {
 
-        people = getPeople();
-
-        Map<Gender, ArrayList<String>> collect = people.stream()
+        Map<Gender, Long> collect = getPeople()
+                .stream()
                 .collect(Collectors.groupingBy(Person::getGender,
-                        Collectors.mapping(Person::getName,
-                                Collectors.toCollection(ArrayList::new))));
+                        Collectors.counting()));
         collect.forEach((k, v) -> System.out.println(k + " " + v));
     }
 
@@ -42,7 +42,7 @@ public class Sample03 {
         );
     }
 
-    private enum Gender {MALE, FEMALE;}
+    private static enum Gender {MALE, FEMALE;}
 
     @Data
     @AllArgsConstructor
